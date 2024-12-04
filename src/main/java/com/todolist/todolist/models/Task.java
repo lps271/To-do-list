@@ -11,7 +11,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
     private String description;
     private String status;
@@ -22,7 +22,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(String title, long id, String description, String status, String priority,
+    public Task(String title, Long id, String description, String status, String priority,
                 Date dateCreation, Date dateConclusion) {
         this.title = title;
         this.id = id;
@@ -33,11 +33,11 @@ public class Task {
         this.dateConclusion = dateConclusion;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
