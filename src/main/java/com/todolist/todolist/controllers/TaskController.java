@@ -4,8 +4,7 @@ import com.todolist.todolist.models.Task;
 import com.todolist.todolist.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,9 +15,16 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    public ResponseEntity<List<Task>> findAll() {
+    @GetMapping
+    public ResponseEntity<List<Task>> listAllTasks() {
         List<Task> list = taskService.findAll();
         return ResponseEntity.ok().body(list);
+    }
+
+    @PostMapping
+    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+        taskService.createTask(task);
+        return ResponseEntity.ok().build();
     }
 
 }
